@@ -201,6 +201,8 @@ public class MainView {
 		
 		//table formation
 		
+
+// array details
 				String[] tblHead= {"▼ First Name","▼ Last Name","▼ Sex","▼ Registration","▼ Course"};
 				
 				String [][] data= {{"Aisha","Akiah","Female","19/456","BIT"},
@@ -226,7 +228,10 @@ public class MainView {
 		
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				DefaultTableModel model=(DefaultTableModel) table.getModel();
+	
+// deleting selected table row			
+
+DefaultTableModel model=(DefaultTableModel) table.getModel();
 				if(table.getSelectedRow()==-1) {
 					if(table.getRowCount()==0) {
 						JOptionPane.showMessageDialog(null, "No Data");
@@ -365,3 +370,4 @@ public class MainView {
 		});
 	}
 }
+ 
