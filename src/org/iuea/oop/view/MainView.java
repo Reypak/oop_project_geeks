@@ -361,6 +361,7 @@ DefaultTableModel model=(DefaultTableModel) table.getModel();
 
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+//insert update values to selected row
 				int row = table.getSelectedRow();
 				table.setValueAt(fname.getText(), row, 0);
 				table.setValueAt(lname.getText(), row, 1);
