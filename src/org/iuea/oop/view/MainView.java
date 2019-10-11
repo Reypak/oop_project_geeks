@@ -58,7 +58,7 @@ public class MainView {
 		
 		JButton btnCourseUnits = new JButton("Course Units");
 		btnCourseUnits.setFont(new Font("SansSerif", Font.PLAIN, 13));
-		btnCourseUnits.setBounds(-5, 67, 115, 40); 
+		btnCourseUnits.setBounds(-5, 67, 115, 40);
 		frmTitle.getContentPane().add(btnCourseUnits);
 		
 		JButton btnLectures = new JButton("Lectures");
@@ -117,11 +117,13 @@ public class MainView {
 		panel_register.add(lblLastName);
 		
 		fname = new JTextField();
+		fname.setFont(new Font("SansSerif", Font.BOLD, 13));
 		fname.setBounds(118, 45, 408, 30);
 		panel_register.add(fname);
 		fname.setColumns(10);
 		
 		lname = new JTextField();
+		lname.setFont(new Font("SansSerif", Font.BOLD, 13));
 		lname.setColumns(10);
 		lname.setBounds(118, 97, 408, 30);
 		panel_register.add(lname);
@@ -132,6 +134,7 @@ public class MainView {
 		panel_register.add(lblSex);
 		
 		JComboBox sexbox = new JComboBox();
+		sexbox.setFont(new Font("SansSerif", Font.BOLD, 13));
 		sexbox.setModel(new DefaultComboBoxModel(new String[] {"Male", "Female"}));
 		sexbox.setBackground(SystemColor.text);
 		sexbox.setBounds(118, 146, 164, 30);
@@ -143,6 +146,7 @@ public class MainView {
 		panel_register.add(lblCourse);
 		
 		course = new JTextField();
+		course.setFont(new Font("SansSerif", Font.BOLD, 13));
 		course.setColumns(10);
 		course.setBounds(118, 192, 408, 30);
 		panel_register.add(course);
@@ -153,6 +157,7 @@ public class MainView {
 		panel_register.add(lblRegistration);
 		
 		reg = new JTextField();
+		reg.setFont(new Font("SansSerif", Font.BOLD, 13));
 		reg.setColumns(10);
 		reg.setBounds(118, 245, 408, 30);
 		panel_register.add(reg);
