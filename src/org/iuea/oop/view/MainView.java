@@ -8,9 +8,11 @@ import javax.swing.*;
 import javax.swing.border.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-//Opening the class
+
+// Opening the class
 public class MainView {
 
+// initializing variables
 	private JFrame frmTitle;
 	private JTextField fname;
 	private JTextField lname;
@@ -168,7 +170,6 @@ public class MainView {
 		panel_students.setBounds(1, 1, 578, 410);
 		panel_main.add(panel_students);
 		
-		
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -216,7 +217,7 @@ public class MainView {
 		table.setRowHeight(20);
 		table.getTableHeader().setPreferredSize(new Dimension(0, 30));
 		((DefaultTableCellRenderer)table.getTableHeader().getDefaultRenderer())
-	    .setHorizontalAlignment(JLabel.CENTER);
+	        .setHorizontalAlignment(JLabel.CENTER);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(18, 85, 541, 200);
@@ -249,7 +250,6 @@ public class MainView {
 					}
 				} else {
 			
-					
 					int row = table.getSelectedRow();
 					fname.setText((String)table.getValueAt(row, 0));
 					lname.setText((String) table.getValueAt(row, 1));
@@ -309,8 +309,6 @@ public class MainView {
 		separator2.setOrientation(SwingConstants.VERTICAL);
 		menuBar.add(separator2);
 		
-		
-		
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String fn = fname.getText();
@@ -334,7 +332,8 @@ public class MainView {
 		
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// hide registration panel
+				
+                                // hide registration panel
 				// load student table
 				panel_students.setVisible(true);
 				panel_register.setVisible(false);
