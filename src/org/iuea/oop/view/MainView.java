@@ -8,7 +8,7 @@ import javax.swing.*;
 import javax.swing.border.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-
+//Opening the class
 public class MainView {
 
 	private JFrame frmTitle;
@@ -58,7 +58,7 @@ public class MainView {
 		
 		JButton btnCourseUnits = new JButton("Course Units");
 		btnCourseUnits.setFont(new Font("SansSerif", Font.PLAIN, 13));
-		btnCourseUnits.setBounds(-5, 67, 115, 40);
+		btnCourseUnits.setBounds(-5, 67, 115, 40); 
 		frmTitle.getContentPane().add(btnCourseUnits);
 		
 		JButton btnLectures = new JButton("Lectures");
