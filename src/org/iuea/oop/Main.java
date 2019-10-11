@@ -1,5 +1,6 @@
 package org.iuea.oop;
 
+//importing java classes and loginview
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -35,4 +36,4 @@ public class Main {
 		
 		
 	}
-}
+}//end 
