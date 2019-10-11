@@ -73,6 +73,7 @@ public class MainView {
 		separator_2.setBounds(0, 424, 697, 2);
 		frmTitle.getContentPane().add(separator_2);
 		
+// main landing panel
 		JPanel panel_main = new JPanel();
 		panel_main.setBackground(Color.WHITE);
 		panel_main.setBorder(new EtchedBorder(EtchedBorder.LOWERED));
@@ -80,6 +81,7 @@ public class MainView {
 		frmTitle.getContentPane().add(panel_main);
 		panel_main.setLayout(null);
 		
+// register panel
 		JPanel panel_register = new JPanel();
 		panel_register.setVisible(false);
 		panel_register.setBounds(1, 1, 578, 410);
@@ -164,6 +166,7 @@ public class MainView {
 		reg.setBounds(118, 245, 408, 30);
 		panel_register.add(reg);
 		
+// student panel
 		JPanel panel_students = new JPanel();
 		panel_students.setVisible(false);
 		panel_students.setLayout(null);
