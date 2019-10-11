@@ -6,22 +6,16 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import javax.swing.border.*;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-
-
 
 public class MainView {
 
 	private JFrame frmTitle;
 	private JTextField fname;
 	private JTextField lname;
-	private JTextField textField;
 	private JTextField course;
 	private JTextField reg;
-
-	/**
-	 * Launch the application.
-	 */
 
 	/**
 	 * Create the application.
@@ -31,32 +25,45 @@ public class MainView {
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Initialing the frame contents
 	 */
 	private void initialize() {
 		frmTitle = new JFrame();
 		frmTitle.setVisible(true);
 		frmTitle.getContentPane().setBackground(Color.WHITE);
 		frmTitle.setTitle("Geeks");
-		frmTitle.setSize(713, 511);
+		frmTitle.setSize(713, 521);
 		frmTitle.setLocationRelativeTo(null);
 		frmTitle.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmTitle.getContentPane().setLayout(null);
 		
 		JButton btnStudents = new JButton("Students");
-		btnStudents.setBounds(-5, -2, 115, 32);
+		btnStudents.setFont(new Font("SansSerif", Font.PLAIN, 13));
+		btnStudents.setBounds(-5, -3, 115, 40);
 		frmTitle.getContentPane().add(btnStudents);
 		
 		JButton btnCourse = new JButton("Course");
-		btnCourse.setBounds(-5, 25, 115, 32);
+		btnCourse.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(btnCourse.hasFocus()) {
+					btnStudents.setBackground(UIManager.getColor("menu"));
+					btnStudents.setForeground(null);
+				} else {					
+				}      
+			}
+		});
+		btnCourse.setFont(new Font("SansSerif", Font.PLAIN, 13));
+		btnCourse.setBounds(-5, 32, 115, 40);
 		frmTitle.getContentPane().add(btnCourse);
 		
 		JButton btnCourseUnits = new JButton("Course Units");
-		btnCourseUnits.setBounds(-5, 52, 115, 32);
+		btnCourseUnits.setFont(new Font("SansSerif", Font.PLAIN, 13));
+		btnCourseUnits.setBounds(-5, 67, 115, 40);
 		frmTitle.getContentPane().add(btnCourseUnits);
 		
 		JButton btnLectures = new JButton("Lectures");
-		btnLectures.setBounds(-5, 79, 115, 32);
+		btnLectures.setFont(new Font("SansSerif", Font.PLAIN, 13));
+		btnLectures.setBounds(-5, 102, 115, 40);
 		frmTitle.getContentPane().add(btnLectures);
 		
 		JSeparator separator_2 = new JSeparator();
@@ -67,41 +74,36 @@ public class MainView {
 		JPanel panel_main = new JPanel();
 		panel_main.setBackground(Color.WHITE);
 		panel_main.setBorder(new EtchedBorder(EtchedBorder.LOWERED));
-		panel_main.setBounds(107, 23, 581, 404);
+		panel_main.setBounds(107, 14, 581, 413);
 		frmTitle.getContentPane().add(panel_main);
 		panel_main.setLayout(null);
 		
-		JPanel panel_students = new JPanel();
-		panel_students.setVisible(false);
-		panel_students.setLayout(null);
-		panel_students.setBounds(1, 1, 578, 401);
-		
 		JPanel panel_register = new JPanel();
 		panel_register.setVisible(false);
-		panel_register.setBounds(1, 1, 578, 401);
+		panel_register.setBounds(1, 1, 578, 410);
 		panel_main.add(panel_register);
 		panel_register.setLayout(null);
 		
 		JButton btnSubmit = new JButton("Submit");
 		btnSubmit.setForeground(Color.WHITE);
-		btnSubmit.setFont(new Font("Dialog", Font.BOLD, 12));
-		btnSubmit.setBackground(new Color(0, 153, 51));
-		btnSubmit.setBounds(144, 327, 78, 34);
+		btnSubmit.setFont(new Font("SansSerif", Font.BOLD, 14));
+		btnSubmit.setBackground(new Color(34, 139, 34));
+		btnSubmit.setBounds(144, 327, 80, 40);
 		panel_register.add(btnSubmit);
 		
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.setForeground(Color.WHITE);
-		btnCancel.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnCancel.setFont(new Font("SansSerif", Font.BOLD, 14));
 		btnCancel.setBackground(new Color(153, 0, 0));
-		btnCancel.setBounds(334, 327, 78, 34);
+		btnCancel.setBounds(334, 327, 80, 40);
 		panel_register.add(btnCancel);
 		
 		JButton btnUpdate = new JButton("Update");
 		btnUpdate.setVisible(false);
 		btnUpdate.setForeground(Color.WHITE);
-		btnUpdate.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnUpdate.setFont(new Font("Dialog", Font.BOLD, 13));
 		btnUpdate.setBackground(new Color(0, 153, 51));
-		btnUpdate.setBounds(144, 327, 78, 34);
+		btnUpdate.setBounds(144, 327, 80, 40);
 		panel_register.add(btnUpdate);
 		
 		JLabel lblFirstName = new JLabel("First Name:");
@@ -154,6 +156,11 @@ public class MainView {
 		reg.setColumns(10);
 		reg.setBounds(118, 245, 408, 30);
 		panel_register.add(reg);
+		
+		JPanel panel_students = new JPanel();
+		panel_students.setVisible(false);
+		panel_students.setLayout(null);
+		panel_students.setBounds(1, 1, 578, 410);
 		panel_main.add(panel_students);
 		
 		
@@ -166,125 +173,50 @@ public class MainView {
 				btnUpdate.setVisible(false);
 			}
 		});
-		btnAdd.setBounds(47, 24, 70, 34);
+		btnAdd.setBounds(47, 24, 80, 40);
 		btnAdd.setForeground(Color.WHITE);
-		btnAdd.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnAdd.setFont(new Font("SansSerif", Font.BOLD, 14));
 		btnAdd.setBackground(new Color(34, 139, 34));
 		panel_students.add(btnAdd);
 		
 		JButton btnEdit = new JButton("Edit");
-		btnEdit.setBounds(251, 24, 70, 34);
+		btnEdit.setBounds(251, 24, 80, 40);
 		btnEdit.setForeground(Color.WHITE);
-		btnEdit.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnEdit.setFont(new Font("SansSerif", Font.BOLD, 14));
 		btnEdit.setBackground(new Color(204, 51, 0));
 		panel_students.add(btnEdit);
 		
 		JButton btnDelete = new JButton("Delete");
-		btnDelete.setBounds(450, 24, 70, 34);
+		btnDelete.setBounds(450, 24, 80, 40);
 		btnDelete.setForeground(Color.WHITE);
-		btnDelete.setFont(new Font("Dialog", Font.BOLD, 12));
+		btnDelete.setFont(new Font("SansSerif", Font.BOLD, 14));
 		btnDelete.setBackground(new Color(153, 0, 0));
 		panel_students.add(btnDelete);
 		
-
 		//table formation
 		
-		String[] tblHead= {"▼ First Name","▼ Last Name","▼ Sex","▼ Registration","▼ Course"};
-		
-		String [][] data= {{"Matt","Mwesigwa","Male","18/UG","BIT"},
-				{"Aisha","Akiah","Female","19/456","BIT"},
-				{"Pete","Joseph","Male","19/345","BCS"},
-				{"Paul","Johns","Male","18/995","BCS"},
-				{"Darty","Malima","Male","18/UG","BIT"},
-				{"Matt","Junior","Male","19/345","BCS"},
-				{"Jane","Tiba","Female","18/995","BCS"}};
-		
-		DefaultTableModel dtm = new DefaultTableModel(data,tblHead);
+				String[] tblHead= {"▼ First Name","▼ Last Name","▼ Sex","▼ Registration","▼ Course"};
+				
+				String [][] data= {{"Aisha","Akiah","Female","19/456","BIT"},
+						{"Matthew","Mwesigwa","Male","18/UG/461","BIT"},
+						{"Pete","Joseph","Male","19/345","BSSE"},
+						{"Paul","Johns","Male","18/UG/995","BIT"},
+						{"Darty","Tsongo","Male","18/UG/543","BCS"},
+						{"Matt","Junior","Male","19/345","BCS"},
+						{"Jane","Tiba","Female","18/995","BSSE"}};
+				
+		DefaultTableModel dtm = new DefaultTableModel(data,tblHead); // mapping arrays to Table Model
 		JTable table = new JTable(dtm);
 		table.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		table.setRowHeight(20);
+		table.getTableHeader().setPreferredSize(new Dimension(0, 30));
+		((DefaultTableCellRenderer)table.getTableHeader().getDefaultRenderer())
+	    .setHorizontalAlignment(JLabel.CENTER);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(18, 85, 541, 179);
+		scrollPane.setBounds(18, 85, 541, 200);
 		panel_students.add(scrollPane);
 		scrollPane.setViewportView(table);
-		
-		JLabel lblGeeks = new JLabel("\u00A9 Geeks 2019");
-		lblGeeks.setHorizontalAlignment(SwingConstants.CENTER);
-		lblGeeks.setBounds(0, 424, 684, 27);
-		frmTitle.getContentPane().add(lblGeeks);
-		
-		JMenuBar menuBar = new JMenuBar();
-		frmTitle.setJMenuBar(menuBar);
-		
-		JMenu mnAction = new JMenu("          Action        ");
-		menuBar.add(mnAction);
-		
-		JMenuItem mntmLogout = new JMenuItem("Logout");
-		mntmLogout.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				frmTitle.dispose();
-				LoginView loginwindow = new LoginView();
-			}
-		});
-		mnAction.add(mntmLogout);
-		
-		JMenu mnl = new JMenu("|");
-		mnl.setEnabled(false);
-		menuBar.add(mnl);
-		
-		JMenu mnHelp = new JMenu("          Help        ");
-		menuBar.add(mnHelp);
-		
-		JMenuItem mntmContacts = new JMenuItem("Contacts");
-		mnHelp.add(mntmContacts);
-		
-		JMenuItem mntmAboutUs = new JMenuItem("About Us");
-		mnHelp.add(mntmAboutUs);
-		
-		JMenu menu_1 = new JMenu("|");
-		menu_1.setEnabled(false);
-		menuBar.add(menu_1);
-		
-		btnSubmit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				String fn = fname.getText();
-				String ln = lname.getText();
-				String s = (String)sexbox.getSelectedItem();
-				String cr = course.getText();
-				String rg = reg.getText();
-				
-				if(fn.isEmpty() || ln.isEmpty()) {
-					JOptionPane.showMessageDialog(
-					null, "You must fill all fields !", "Geeks", 
-					JOptionPane.INFORMATION_MESSAGE);
-				} else {
-					String [] item= {fn,ln,s,rg,cr};
-					dtm.addRow(item);
-					panel_register.setVisible(false);
-					panel_students.setVisible(true);
-				};
-			}
-		});
-		
-		btnCancel.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				// hide registration panel
-				// load student table
-				panel_students.setVisible(true);
-				panel_register.setVisible(false);
-			}
-		});
-		
-		btnStudents.addActionListener(new ActionListener(){
-			@Override
-			public void actionPerformed(ActionEvent ae) {
-				btnStudents.setBackground(Color.BLUE);
-				btnStudents.setForeground(Color.WHITE);
-				panel_students.setVisible(true);
-				panel_register.setVisible(false);
-			}
-			
-		});
 		
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -326,6 +258,93 @@ public class MainView {
 				}
 				
 			}
+		});
+		
+		JLabel lblGeeks = new JLabel("\u00A9 Geeks 2019");
+		lblGeeks.setFont(new Font("SansSerif", Font.BOLD, 13));
+		lblGeeks.setHorizontalAlignment(SwingConstants.CENTER);
+		lblGeeks.setBounds(0, 424, 697, 27);
+		frmTitle.getContentPane().add(lblGeeks);
+		
+		JMenuBar menuBar = new JMenuBar();
+		menuBar.setBackground(Color.RED);
+		menuBar.setPreferredSize(new Dimension(0, 30)); // menu bar size
+		frmTitle.setJMenuBar(menuBar);
+		
+		JMenu mnAction = new JMenu("      Action       ");
+		mnAction.setFont(new Font(null, Font.BOLD, 13));
+		menuBar.add(mnAction);
+		
+		JMenuItem mntmLogout = new JMenuItem("Logout");
+		mntmLogout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frmTitle.dispose();
+				LoginView loginwindow = new LoginView();
+			}
+		});
+		mnAction.add(mntmLogout);
+		
+		JSeparator separator = new JSeparator();
+		separator.setMaximumSize(new Dimension(3, 90));
+		separator.setOrientation(SwingConstants.VERTICAL);
+		menuBar.add(separator);
+		
+		JMenu mnHelp = new JMenu("       Help       ");
+		mnHelp.setFont(new Font(null, Font.BOLD, 13));
+		menuBar.add(mnHelp);
+		
+		JMenuItem mntmContacts = new JMenuItem("Contacts");
+		mnHelp.add(mntmContacts);
+		
+		JMenuItem mntmAboutUs = new JMenuItem("About Us");
+		mnHelp.add(mntmAboutUs);
+		
+		JSeparator separator2 = new JSeparator();
+		separator2.setMaximumSize(new Dimension(5, 90));
+		separator2.setOrientation(SwingConstants.VERTICAL);
+		menuBar.add(separator2);
+		
+		
+		
+		btnSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String fn = fname.getText();
+				String ln = lname.getText();
+				String s = (String)sexbox.getSelectedItem();
+				String cr = course.getText();
+				String rg = reg.getText();
+				
+				if(fn.isEmpty() || ln.isEmpty()) {
+					JOptionPane.showMessageDialog(
+					null, "You must fill all fields !", "Geeks", 
+					JOptionPane.INFORMATION_MESSAGE);
+				} else {
+					String [] item= {fn,ln,s,rg,cr};
+					dtm.addRow(item);
+					panel_register.setVisible(false);
+					panel_students.setVisible(true);
+				};
+			}
+		});
+		
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				// hide registration panel
+				// load student table
+				panel_students.setVisible(true);
+				panel_register.setVisible(false);
+			}
+		});
+		
+		btnStudents.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent ae) {
+				btnStudents.setBackground(Color.BLUE);
+				btnStudents.setForeground(Color.WHITE);
+				panel_students.setVisible(true);
+				panel_register.setVisible(false);
+			}
+			
 		});
 
 		btnUpdate.addActionListener(new ActionListener() {
